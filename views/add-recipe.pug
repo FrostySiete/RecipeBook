@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  body
+  h1 Add a New Recipe
+
+  form(action='/add', method='POST')
+    div
+      label(for='name') Name:
+      input(type='text', name='name', required)
+
+    div
+      label(for='protein') Protein Type:
+      select(name='protein', required)
+        option(value='Chicken') Chicken
+        option(value='Beef') Beef
+        option(value='Pork') Pork
+        option(value='Fish') Fish
+        option(value='Vegetarian') Vegetarian
+
+    div
+      label(for='ingredientIds') Ingredient IDs (comma-separated):
+      input(type='text', name='ingredientIds', placeholder='e.g. 1, 3, 5', required)
+      p Ingredient List:
+      ul
+        each ingredient in ingredients
+          li #{ingredient.id}: #{ingredient.type} - #{ingredient.description}
+
+    div
+      label(for='instructions') Instructions:
+      textarea(name='instructions', required)
+
+    div
+      button(type='submit') Add Recipe

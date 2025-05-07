@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1 Recipes by Protein Type
+
+  .protein-grid
+    each recipes, protein in recipesByProtein
+      .protein-column
+        h2= protein
+        ul
+          each recipe in recipes
+            li
+              a(href=`/recipes/${recipe.id}`)= recipe.name
+//- block content
+    h1 Recipes by Protein Type
+    .protein-grid
+        each recipes, protein in recipesByProtein
+            h2= protein
+            table(border="1")
+            thead
+                tr
+                th Name
+                th Actions
+            tbody
+                each recipe in recipes
+                tr
+                    td= recipe.name
+                    td
+                    a(href=`/recipes/${recipe.id}`) View -//

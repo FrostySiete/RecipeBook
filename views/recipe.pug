@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= recipe.name
+  h3 Protein: #{recipe.protein}
+
+  h4 Ingredients
+  ul
+    each ingredient in ingredients
+      li #{ingredient.type}: #{ingredient.description}
+
+  h4 Instructions
+  p= recipe.instructions
+
+  a(href='/recipes') ← Back to recipes
