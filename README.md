@@ -5,6 +5,7 @@ Setup:
 Package Installation:
 npm install node
 npm install express pug dotenv mysql
+
 Database Connection:
 Create a .env file with the following fields
 DB_HOST=localhost
